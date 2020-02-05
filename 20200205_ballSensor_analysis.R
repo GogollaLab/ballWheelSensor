@@ -1,5 +1,5 @@
 library(plyr) #conditional replacement of values, revaluing
-
+library(reticulate) #interface with Python to run the data cleaning script
 
 
 
@@ -21,9 +21,8 @@ binsPerSecond <- 10 #define the number of bins per second
 
 
 
-
 ballSensorProcess <- function(filename) {
-  data <- read.table(filename)
+  data <- read.table(paste0("cl/", filename))
   
   
   
@@ -144,9 +143,10 @@ ballSensorProcess <- function(filename) {
 
 
 
-files <- list.files(pattern = "*.txt")
 
 dir.create("processed")
+py_run_file("cleanBallData_r1.py")
+files <- list.files("cl", pattern = "*.txt")
 for(i in 1:length(files)){
   filename <- files[i]
   ballSensorProcess(filename)
