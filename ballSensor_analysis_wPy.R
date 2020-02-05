@@ -5,7 +5,7 @@ library(reticulate) #interface with Python to run the data cleaning script
 
 
 
-acqFreq <- 62.5 #acquisition frequency of the ball sensor; DEFAULT IS 62.5
+acqFreq <- 62.5 #acquisition frequency of the ball sensor; DEFAULT IS 62.5, keep if mouse polling was NOT manually changed in Linux (RPi)
 binsPerSecond <- 10 #define the number of bins per second
 
 
@@ -129,6 +129,7 @@ ballSensorProcess <- function(filename) {
   
   #write to file
   noExtFilename <- tools::file_path_sans_ext(filename) #remove extension from the filename
+  noExtFilename <- substr(noExtFilename, 1, nchar(noExtFilename) - 3) #remove "_cl" from final filename
   outputFilename <- paste0("processed/", noExtFilename, "__binned_", binsPerSecond, "Hz")
   outputFilename <- paste(outputFilename, "txt", sep = ".")
   
@@ -145,8 +146,11 @@ ballSensorProcess <- function(filename) {
 
 
 dir.create("processed")
-py_run_file("cleanBallData_r1.py")
+
+py_run_file("E:/ballAnalysisTest1/cleanBallData_r1.py")
+
 files <- list.files("cl", pattern = "*.txt")
+
 for(i in 1:length(files)){
   filename <- files[i]
   ballSensorProcess(filename)
