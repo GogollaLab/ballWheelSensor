@@ -147,7 +147,7 @@ ballSensorProcess <- function(filename) {
 
 dir.create("processed")
 
-py_run_file("E:/ballAnalysisTest1/cleanBallData_r1.py")
+py_run_file("E:/ballAnalysisTest1/cleanBallData_r1.py") #SET CORRECT PATH TO cleanBallData_r1.py and save, only needed once
 
 files <- list.files("cl", pattern = "*.txt")
 
