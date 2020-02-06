@@ -5,16 +5,24 @@ library(reticulate) #interface with Python to run the data cleaning script
 
 
 
-acqFreq <- 62.5 #acquisition frequency of the ball sensor; DEFAULT IS 62.5, keep if mouse polling was NOT manually changed in Linux (RPi)
-binsPerSecond <- 10 #define the number of bins per second
+#SET CORRECT PATH TO cleanBallData_r1.py below before first use and save, only needed once. CRUCIAL
+#ensure to use forward slashes in all paths! (/) 
+pathTo_cleanBallData_r1_py = "C:/Users/nd.../cleanBallData_r1.py"
+
+
+acqFreq <- 62.5 #acquisition frequency of the ball sensor; DEFAULT IS 62.5, keep if mouse polling was NOT manually changed in Linux/RPi
+binsPerSecond <- 10 #define the desired number of bins per second
 
 
 
+#in RStudio use Session/Set Working Directory/Choose Directory... to set the working directory to
+#location of your unprocessed mouse sensor .txt files.
+#in VSCode (or command line or similar) use the setwd("path") command before running the script 
+#with "path" replaced with the path to the folder containing unprocessed mouse sensor .txt files
 
 
-
-
-
+#run the whole script! pressing "run" in RStudio will ONLY run the current line by default!
+#you can select whole file by pressing ctrl+A and run the selection by pressing ctrl+enter
 
 
 
@@ -147,7 +155,7 @@ ballSensorProcess <- function(filename) {
 
 dir.create("processed")
 
-py_run_file("C:/Users/ndolensek/OneDrive/PhD/codeArchive/opticalBallWheelSensor/cleanBallData_r1.py") #SET CORRECT PATH TO cleanBallData_r1.py and save, only needed once
+py_run_file(pathTo_cleanBallData_r1_py) 
 
 files <- list.files("cl", pattern = "*.txt")
 
