@@ -2,6 +2,8 @@
 Tracking virtual reality wheels and running balls (as commonly used in rodent neuroscientific experiments) using optical sensors
 
 
+## Background
+
 The scripts above are written to run on a Raspberry Pi (tested versions: 2B, 3B, 3B+, 4B),
 and record all outputs of a desired computer mouse sensor which enables precise logging 
 of movement speed and direction
@@ -16,15 +18,19 @@ for your sensor. I recommed partially dissasembling the mouse to isolate the sen
 so no part of mouse body touches the tracked item of choice.
 
 
+## Use
+
 There are 3 variations of the script:  
 * Time1.py will record for a specified number of seconds  
 * TTL_Time1.py will record for a specified number of seconds from the moment of detecting a HIGH value on GPIO pin 21  
 * TTL1.py will record from the moment of detecting a HIGH value on GPIO pin 21 and until the value changes to LOW  
 
-Execute all scripts using terminal by navigating to a containing directory and executing the following (enter the duration of recording 
-as a number of second and pressing enter if prompted):
+Execute all scripts using terminal by navigating to a containing directory and executing one of the following lines 
+(enter the duration of recording as a number of seconds and press enter if prompted):
 ```
 sudo python Time1.py
+sudo python TTL_Time1.py
+sudo python TTL1.py
 ```
 
 All scripts are set to print timestamped output, which will be output directly to the terminal in the above
@@ -62,3 +68,12 @@ sensor recording scripts and run the .R file. Files containing timestamped and b
 will be located in a subfolder `processed/` with original names to which `__binned_nHz` has been appended (n standing for
 selected binning frequency). Furthermore, a `cl/` subfolder will be created with cleaned, but not in any way processed files.
 Ensure that line 150 in R script `py_run_file(...` contains a correct path to `cleanBallData_r1.py` file.
+
+
+
+
+## Extras
+
+By adding `usbhid.mousepoll = 0` to `/boot/cmdline.txt` file on the RPi and restarting, the mouse sensor polling rate
+will stop being limited by the OS to 62.5Hz and will be set to a rate requested by the device. This can be up to 1000Hz in 
+some high-end gaming mice and can usually be further adjusted in the software (e.g. Logitech G HUB).
