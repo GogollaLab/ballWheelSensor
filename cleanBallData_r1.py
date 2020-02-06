@@ -1,11 +1,12 @@
 import os
 import glob
 
-folderPath = "E:/ballAnalysisTest1/ff/"
+#folderPath = "E:/ballAnalysisTest1/ff/"
+folderPath = os.getcwd()
 
-outputfolderPath = folderPath + "cl/" #cl subfolder will be created if it doesn't exist
+outputfolderPath = folderPath + "/cl/" #cl subfolder will be created if it doesn't exist
 os.makedirs(os.path.dirname(outputfolderPath), exist_ok=True)
-for i in glob.glob(folderPath+"*.txt"):
+for i in glob.glob(folderPath + "/*.txt"):
     with open(i) as rawfile, open(outputfolderPath + os.path.basename(i)[:-4] + "_cl.txt", "w") as cleanfile:
 
         for line in rawfile:
