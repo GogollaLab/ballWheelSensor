@@ -35,8 +35,8 @@ sudo python TTL1.py
 
 All scripts are set to print timestamped output, which will be output directly to the terminal in the above
 use-case. This enables easy over-network recording in a headless setup using SSH if desired. 
-For local recording, the code can easily be adapted to write directly to a file or the output can be captured and
-recorded in terminal like this:
+For local recording, the code can be easily adapted to write directly to a file or the output can be captured and
+recorded in terminal like this (the following will record all sensor data to recording1.txt file):
 ```
 sudo python Time1.py >> recording1.txt
 ```
