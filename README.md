@@ -1,5 +1,5 @@
 # opticalBallWheelSensor
-Tracking virtual reality wheels and running balls (as commonly used in rodent neuroscientific experiments) using optical sensors
+Tracking virtual reality wheels and running balls (as commonly used in rodent neuroscientific experiments) using computer mouse sensors
 
 
 ## Background
