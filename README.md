@@ -101,4 +101,4 @@ By adding `usbhid.mousepoll = 0` to `/boot/cmdline.txt` file on the RPi and rest
 
 #### 
 
-_Created by [Nejc Nate Dolensek](ndolensek.com) of the [Gogolla Lab](https://www.neuro.mpg.de/gogolla) at  [Max-Planck-Institute of Neurobiology](https://www.neuro.mpg.de/en)._
+_Created by [Nejc Nate Dolensek](https://ndolensek.com) of the [Gogolla Lab](https://www.neuro.mpg.de/gogolla) at  [Max-Planck-Institute of Neurobiology](https://www.neuro.mpg.de/en)._
