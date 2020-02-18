@@ -17,6 +17,11 @@ arguments are set correctly. Consult [this](http://the-sz.com/products/usbid/) w
 for your sensor. I recommed partially dissasembling the mouse to isolate the sensor and the PCBs before use
 so no part of mouse body touches the tracked item of choice.
 
+## Requirements
+* Raspberry Pi (preferably version 3b, 3b+ or 4b) with Raspbian, Python3 (and SSH access enabled in case of desired control over the network)
+* Logitech G502 (or similar) sensor and PCB
+* (optional) An external TTL trigger (preferably 3.3V, but 5V will also work, although the GPIO pins are not designed for it)
+* Analysis PC with Python3 (I recommend Anaconda distribution based on python 3.7), R and RStudio. Also ensure that R libraries plyr and reticulate are installed.
 
 ## Use
 
