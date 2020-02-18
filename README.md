@@ -92,3 +92,13 @@ will be located in a subfolder `processed/` with original names to which `__binn
 ## Extras
 
 By adding `usbhid.mousepoll = 0` to `/boot/cmdline.txt` file on the RPi and restarting, the mouse sensor polling rate will stop being limited by the OS to 62.5Hz and will be set to a rate requested by the device. This can be up to 1000Hz in some high-end gaming mice and can usually be further adjusted in the software (e.g. Logitech G HUB). Some mouse sensors will contain LEDs on the PCB, which can usually be turned off using the same software.
+
+
+
+
+
+
+
+#### 
+
+_Created by [Nejc Nate Dolensek](ndolensek.com) of the [Gogolla Lab](https://www.neuro.mpg.de/gogolla) at  [Max-Planck-Institute of Neurobiology](https://www.neuro.mpg.de/en)._
